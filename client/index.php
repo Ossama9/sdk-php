@@ -10,7 +10,7 @@ function login()
         "state"=>bin2hex(random_bytes(16)),
         "client_id"=> FB_CLIENT_ID,
         "scope"=>"public_profile,email",
-        "redirect_uri"=>"https://localhost:8081/fb_oauth_success",
+        "redirect_uri"=>"http://localhost:8081/fb_oauth_success",
     ]);
     echo "<a href=\"https://www.facebook.com/v14.0/dialog/oauth?{$fbQueryParams}\">Login with Facebook</a>";
 }
@@ -22,13 +22,13 @@ function fbcallback()
     $user = getFbUser($token);
     $unifiedUser = (fn () => [
         "id" => $user["id"],
-        "name" => $user["name"],
         "email" => $user["email"],
         "firstName" => $user['first_name'],
         "lastName" => $user['last_name'],
     ])();
     var_dump($unifiedUser);
 }
+
 function getFbUser($token)
 {
     $context = stream_context_create([
@@ -49,7 +49,7 @@ function getToken($baseUrl, $clientId, $clientSecret)
     $queryParams = http_build_query([
         "client_id"=> $clientId,
         "client_secret"=> $clientSecret,
-        "redirect_uri"=>"https://localhost/fb_oauth_success",
+        "redirect_uri"=>"http://localhost:8081/fb_oauth_success",
         "code"=> $code,
         "grant_type"=>"authorization_code",
     ]);
@@ -75,6 +75,10 @@ switch (strtok($route, "?")) {
         break;
     case '/fb_oauth_success':
         fbcallback();
+        break;
+
+    case '/home':
+        home();
         break;
     default:
         http_response_code(404);
