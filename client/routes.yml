@@ -1,0 +1,9 @@
+/login:
+        login();
+        break;
+/oauth_success:
+        callback();
+        break;
+/fb_oauth_success:
+        fbcallback();
+        break;
