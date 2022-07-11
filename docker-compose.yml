@@ -1,17 +1,12 @@
+version: '3'
 services:
-  sdk-server:
-    image: php:alpine
+  sdk_web:
+    build: site
+    container_name: sdk_web
+    ports :
+     - "80:80"
     volumes:
-      - ./server:/home/root
-    working_dir: /home/root
-    ports:
-      - 8080:8080
-    command: "php -S 0.0.0.0:8080"
-  sdk-client:
-    image: php:alpine
-    volumes:
-      - ./client:/home/root
-    working_dir: /home/root
-    ports:
-      - 8081:8080
-    command: "php -S 0.0.0.0:8080"
+     - ./www:/var/www/html/
+     - ./server/000-default.conf:/etc/apache2/sites-available/000-default.conf
+     - ./server/apache2.conf:/etc/apache2/apache2.conf
+     - ./server/php.ini:/usr/local/etc/php/php.ini

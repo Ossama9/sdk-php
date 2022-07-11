@@ -1,1 +1,7 @@
+db_data
 .idea
+www/.env*
+.idea/
+.idea/workspace.xml
+.idea/php.xml
+.DS_Store

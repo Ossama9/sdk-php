@@ -1,0 +1,44 @@
+-
+  controller: main
+  action: home
+  path: /
+
+-
+  controller: main
+  action: home
+  path: /home
+
+
+-
+  controller: main
+  action: callback
+  path: /callback
+
+
+
+-
+  controller: Twitch
+  action: loginWithTwitch
+  path: /loginWithTwitch
+  method: GET
+
+-
+  controller: Discord
+  action: loginWithDiscord
+  path: /loginWithDiscord
+  method: GET
+
+
+
+
+-
+  controller: Twitch
+  action: twitchOauthSuccess
+  path: /twitch_oauth_success
+  param : ["code"]
+
+-
+  controller: Discord
+  action: discordOauthSuccess
+  path: /discord_oauth_success
+  param : ["code"]
