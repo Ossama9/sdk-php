@@ -9,7 +9,6 @@ use App\Provider\TwitchProvider;
 class Twitch extends BaseController
 {
 
-private TwitchProvider $twitchProvider;
     public function loginWithTwitch(): void
     {
         $twitchProvider = new TwitchProvider(
@@ -18,6 +17,7 @@ private TwitchProvider $twitchProvider;
             TWITCH_REDIRECT_URI,
             TWITCH_SCOPE
         );
+
 
         header("Location: " . $twitchProvider->getAuthorizationUrl());
     }
@@ -32,6 +32,7 @@ private TwitchProvider $twitchProvider;
         );
 
         $code = $this->request->get('code');
+
         if ($code) {
             $token = $twitchProvider->getToken($code);
             if ($token) {

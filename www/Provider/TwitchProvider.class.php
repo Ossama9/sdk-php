@@ -23,7 +23,6 @@ class TwitchProvider extends BaseProvider
 
     public function getAuthorizationUrl(): string
     {
-        parent::getAuthorizationUrl();
         return $this->url . 'authorize?' . parent::getAuthorizationUrl();
     }
 

@@ -22,6 +22,7 @@ class Main extends BaseController
         $session = Session::getInstance();
         $token = $session->get("token");
         $providerName = $session->get("provider");
+
         $providerName = ucfirst($providerName);
         $provider = strtoupper($providerName);
 
@@ -35,6 +36,7 @@ class Main extends BaseController
                 constant($provider . "_REDIRECT_URI"),
                 constant($provider . "_SCOPE")
             );
+
             $response = $provider->getUserInfo($token);
             $login = $response['login'] ?? null;
             if ($login){
