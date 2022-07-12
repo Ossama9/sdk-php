@@ -7,6 +7,7 @@ use App\Controller\BaseController;
 use App\Core\Session;
 use App\Model\User as UserModel;
 use App\Provider\TwitchProvider;
+use App\Provider\FacebookProvider;
 
 class Main extends BaseController
 {
@@ -46,6 +47,7 @@ class Main extends BaseController
                 header("Location: /");
             }
         }
+
         die();
     }
 

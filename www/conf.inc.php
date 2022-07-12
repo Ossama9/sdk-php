@@ -12,5 +12,15 @@ const DISCORD_CLIENT_SECRET = "DT5ABXHNljkFHo199gkltOjxcVJhQOev";
 const DISCORD_REDIRECT_URI = "http://localhost/discord_oauth_success";
 const DISCORD_SCOPE = "identify";
 
+const FACEBOOK_CLIENT_ID = "413782494141506";
+const FACEBOOK_CLIENT_SECRET = "c8c74b9168d1533eaeadab121b372a88";
+const FACEBOOK_REDIRECT_URI = "http://localhost/facebook_oauth_success";
+const FACEBOOK_SCOPE = "public_profile,email";
+
+const GOOGLE_CLIENT_ID = "413782494141506";
+const GOOGLE_CLIENT_SECRET = "c8c74b9168d1533eaeadab121b372a88";
+const GOOGLE_REDIRECT_URI = "http://localhost/google_oauth_success";
+const GOOGLE_SCOPE = "public_profile,email";
+
 
 

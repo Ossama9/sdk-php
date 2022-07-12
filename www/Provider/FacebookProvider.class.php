@@ -4,9 +4,9 @@ namespace App\Provider;
 
 class FacebookProvider extends BaseProvider
 {
-    private string $url = 'https://discord.com/api/oauth2/';
+    private string $url = 'https://www.facebook.com/v14.0/dialog/oauth?';
+    private string $urlToken = 'https://graph.facebook.com/v14.0/oauth/';
     private string $token = '';
-    private array $headers = [];
 
     public function __construct($client_id, $client_secret, $redirect_uri, $scope)
     {
@@ -15,7 +15,13 @@ class FacebookProvider extends BaseProvider
 
     public function getAuthorizationUrl(): string
     {
-        return $this->url . 'authorize?' . parent::getAuthorizationUrl();
+        return $this->url . '' . parent::getAuthorizationUrl();
+    }
+
+    public function sendRequest($uri, $method = 'GET', $data = null, $headers = []): array
+    {
+        $url = $this->urlToken . $uri;
+        return parent::sendRequest($url, $method, $data, $headers);
     }
 
     public function getToken(string $code) : string
@@ -27,7 +33,7 @@ class FacebookProvider extends BaseProvider
             'grant_type' => 'authorization_code',
             'redirect_uri' => $this->redirect_uri,
         ];
-        $response = $this->sendRequest('token', 'POST', $data);
+        $response = $this->sendRequest('access_token', 'POST', $data);
         $this->token = $response['access_token'] ?? null;
         return $this->token;
     }
@@ -38,20 +44,15 @@ class FacebookProvider extends BaseProvider
         $headers = [
             'Authorization: Bearer ' . $token
         ];
-        $response = parent::sendRequest('https://discordapp.com/api/users/@me', 'GET', null, $headers);
+        $response = parent::sendRequest('https://graph.facebook.com/v14.0/me?fields=last_name,first_name,email', 'GET', null, $headers);
         return [
-            'id' => $response['id'] ?? null,
-            'login' => $response['username'] ?? null,
-            'discriminator' => $response['discriminator'] ?? null,
+            'id' => $response['email'] ?? null,
+            'login' => $response['last_name'] ?? null,
+            'discriminator' => $response['first_name'] ?? null,
             'avatar' => $response['avatar'] ?? null,
         ];
     }
 
 
-    public function sendRequest($uri, $method = 'GET', $data = null, $headers = []): array
-    {
-        $url = $this->url . $uri;
-        return parent::sendRequest($url, $method, $data, $headers);
-    }
 
 }

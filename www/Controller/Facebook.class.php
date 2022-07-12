@@ -9,14 +9,35 @@ class Facebook extends BaseController
 {
     public function loginWithFacebook()
     {
-        $discordProvider = new DiscordProvider(
-            DISCORD_CLIENT_ID,
-            DISCORD_CLIENT_SECRET,
-            DISCORD_REDIRECT_URI,
-            DISCORD_SCOPE,
+        $facebookProvider = new FacebookProvider(
+            FACEBOOK_CLIENT_ID,
+            FACEBOOK_CLIENT_SECRET,
+            FACEBOOK_REDIRECT_URI,
+            FACEBOOK_SCOPE,
         );
 
-        header("Location: " . $discordProvider->getAuthorizationUrl());
+        header("Location: " . $facebookProvider->getAuthorizationUrl());
 
+    }
+
+    public function facebookOauthSuccess()
+    {
+        $facebookProvider = new FacebookProvider(
+            FACEBOOK_CLIENT_ID,
+            FACEBOOK_CLIENT_SECRET,
+            FACEBOOK_REDIRECT_URI,
+            FACEBOOK_SCOPE,
+        );
+
+        $code  = $this->request->get('code');
+        if ($code){
+            $token = $facebookProvider->getToken($code);
+            if ($token) {
+                $session = Session::getInstance();
+                $session->set('provider', 'facebook');
+                $session->set('token', $token);
+                header("Location: /callback");
+            }
+        }
     }
 }
