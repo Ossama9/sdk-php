@@ -42,7 +42,6 @@ class BaseProvider
         $result = curl_exec($ch);
 
         curl_close($ch);
-        //var_dump($result);
         return json_decode($result, true, 512, JSON_THROW_ON_ERROR);
     }
 

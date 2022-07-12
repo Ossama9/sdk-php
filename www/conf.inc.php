@@ -17,10 +17,10 @@ const FACEBOOK_CLIENT_SECRET = "c8c74b9168d1533eaeadab121b372a88";
 const FACEBOOK_REDIRECT_URI = "http://localhost/facebook_oauth_success";
 const FACEBOOK_SCOPE = "public_profile,email";
 
-const GOOGLE_CLIENT_ID = "413782494141506";
-const GOOGLE_CLIENT_SECRET = "c8c74b9168d1533eaeadab121b372a88";
+const GOOGLE_CLIENT_ID = "88742794581-8sq097a6c2sq7q0gnil7hiar7rjq3vcc.apps.googleusercontent.com";
+const GOOGLE_CLIENT_SECRET = "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";
 const GOOGLE_REDIRECT_URI = "http://localhost/google_oauth_success";
-const GOOGLE_SCOPE = "public_profile,email";
+const GOOGLE_SCOPE = "https://www.googleapis.com/auth/userinfo.email";
 
 
 
