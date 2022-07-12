@@ -28,12 +28,13 @@
   path: /loginWithDiscord
   method: GET
 
-
+-
   controller: Facebook
   action: loginWithFacebook
   path: /loginWithFacebook
   method: GET
 
+-
   controller: Google
   action: loginWithGoogle
   path: /loginWithGoogle
