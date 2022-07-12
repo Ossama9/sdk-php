@@ -29,6 +29,13 @@
   method: GET
 
 
+  controller: Facebook
+  action: loginWithFacebook
+  path: /loginWithFacebook
+  method: GET
+
+
+
 
 
 -
