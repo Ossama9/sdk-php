@@ -20,7 +20,7 @@ class DiscordProvider extends BaseProvider
         return $this->url . 'authorize?' . parent::getAuthorizationUrl();
     }
 
-    public function getToken(string $code) : string
+    public function getToken(string $code)
     {
         $data = [
             'code' => $code,
@@ -31,11 +31,12 @@ class DiscordProvider extends BaseProvider
         ];
         $response = $this->sendRequest('token', 'POST', $data);
         $this->token = $response['access_token'] ?? null;
+
         return $this->token;
     }
 
 
-    public function getUserInfo(string $token) : array
+    public function getUserInfo(string $token): array
     {
         $headers = [
             'Authorization: Bearer ' . $token

@@ -36,6 +36,7 @@ class Discord extends BaseController
         $code  = $this->request->get('code');
         if ($code){
             $token = $discordProvider->getToken($code);
+
             if ($token) {
                 $session = Session::getInstance();
                 $session->set('provider', 'discord');

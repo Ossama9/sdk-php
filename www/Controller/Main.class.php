@@ -48,8 +48,13 @@ class Main extends BaseController
             }
         }
 
-
         die();
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        header("Location: /");
     }
 
 
