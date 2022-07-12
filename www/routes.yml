@@ -56,11 +56,13 @@
   path: /discord_oauth_success
   param : ["code"]
 
+-
   controller: Facebook
   action: facebookOauthSuccess
   path: /facebook_oauth_success
   param: [ "code" ]
 
+-
   controller: Google
   action: googleOauthSuccess
   path: /google_oauth_success
