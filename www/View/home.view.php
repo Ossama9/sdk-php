@@ -39,5 +39,9 @@
     <a href="/loginWithGoogle">Se connecter avec Google</a>
 </button>
 <br>
+<button style="background-color: #000000 ;color: aliceblue" class="btn">
+    <a href="/loginWithServer">Se connecter avec Server</a>
+</button>
+<br>
 
 
