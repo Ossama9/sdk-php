@@ -1,0 +1,27 @@
+version: '3'
+services:
+  sdk_web:
+    build: site
+    container_name: sdk_web
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www/html/
+      - ./server/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./server/apache2.conf:/etc/apache2/apache2.conf
+      - ./server/php.ini:/usr/local/etc/php/php.ini
+
+  oauth-server:
+    build: site
+    image: php:alpine
+    volumes:
+      - ./www:/var/www/html/
+      - ./server/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./server/apache2.conf:/etc/apache2/apache2.conf
+      - ./server/php.ini:/usr/local/etc/php/php.ini
+    working_dir: /var/www/html/
+    ports:
+      - 8080:8080
+    command: "php -S 0.0.0.0:8080"
+
+

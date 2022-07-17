@@ -1,0 +1,3 @@
+{"name":"Projet Sdk","url":"localhost","redirect_uri":"server_oauth_success","client_id":"d8acbf8bb5366c3b0c5fd79c636afbcd","client_secret":"899dde1b3247b7e7a4e9576b9293d823"}
+{"name":"Projet test","url":"jsp","redirect_uri":"hihi","client_id":"b76e0a48317b9eb8d1eed90093201b51","client_secret":"52bdcff4511d5d17ad7b47df4ed5469f"}
+{"name":"Sdk-Server","url":"localhost","redirect_uri":"http:\/\/localhost\/server_oauth_success","client_id":"daddd55d0de22b1b3f08cdf705eeba10","client_secret":"f643bd1ab28754caf02f200252cbe6a5"}

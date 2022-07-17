@@ -1,0 +1,143 @@
+-
+  controller: main
+  action: home
+  path: /
+
+-
+  controller: main
+  action: home
+  path: /home
+
+
+-
+  controller: main
+  action: callback
+  path: /callback
+
+
+-
+  controller: server
+  action: loginWithServer
+  path: /loginWithServer
+  method: GET
+
+-
+  controller: Twitch
+  action: loginWithTwitch
+  path: /loginWithTwitch
+  method: GET
+
+-
+  controller: Discord
+  action: loginWithDiscord
+  path: /loginWithDiscord
+  method: GET
+
+-
+  controller: Facebook
+  action: loginWithFacebook
+  path: /loginWithFacebook
+  method: GET
+
+-
+  controller: Google
+  action: loginWithGoogle
+  path: /loginWithGoogle
+  method: GET
+
+
+-
+  controller: Server
+  action: serverOauthSuccess
+  path: /server_oauth_success
+  param : ["code"]
+
+
+-
+  controller: Twitch
+  action: twitchOauthSuccess
+  path: /twitch_oauth_success
+  param : ["code"]
+
+-
+  controller: Discord
+  action: discordOauthSuccess
+  path: /discord_oauth_success
+  param : ["code"]
+
+-
+  controller: Facebook
+  action: facebookOauthSuccess
+  path: /facebook_oauth_success
+  param: [ "code" ]
+
+-
+  controller: Google
+  action: googleOauthSuccess
+  path: /google_oauth_success
+  param: [ "code" ]
+
+
+
+-
+    controller: main
+    action: logout
+    path: /logout
+    method: GET
+
+
+-
+    controller: server
+    action: register
+    path: /oauth2/register
+    method: GET
+
+
+
+-
+    controller: server
+    action: register
+    path: /oauth2/register
+    method: POST
+
+
+-
+    controller: server
+    action: authorize
+    path: /oauth2/authorize
+    method: GET
+
+
+
+-
+    controller: server
+    action: authSuccess
+    path: /oauth2/auth-success
+    method: GET
+
+-
+    controller: server
+    action: failed
+    path: /oauth2/failed
+    method: GET
+
+
+-
+    controller: server
+    action: token
+    path: /oauth2/token
+    method: GET
+    param: [ "client_id","client_secret","grant_type","code","redirect_uri" ]
+
+
+-
+    controller: server
+    action: me
+    path: /oauth2/me
+    method: GET
+
+-
+    controller: server
+    action: stats
+    path: /oauth2/stats
+    method: GET
